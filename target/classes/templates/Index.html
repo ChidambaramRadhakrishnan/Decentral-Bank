@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decentralized Bank</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-dark">
+		<div class="container">
+			<!-- Logo -->
+			<a class="navbar-brand fw-bold text-white" href="#">
+				Decentralized Bank </a>
+
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<ul class="navbar-nav">
+					<!-- Dropdown button -->
+					<li class="nav-item dropdown"><a class="nav-link text-white" href="#"
+						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						aria-expanded="false"> Login/Signup <i
+							class="bi bi-arrow-down-right-circle text-warning"></i>
+					</a>
+						<ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" th:href="@{/adminLogin}">Admin
+									Login <i class="bi bi-arrow-up-right-circle text-success"></i>
+							</a></li>
+							<li><a class="dropdown-item" th:href="@{/loginuser}">Customer
+									Login <i class="bi bi-arrow-up-right-circle text-primary"></i>
+							</a></li>
+							<li><a class="dropdown-item" th:href="@{/newcustomer}">Customer
+									Signup <i class="bi bi-arrow-up-right-circle text-danger"></i>
+							</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			
+		</div>
+	</nav>
+	
+	<div class="header">
+		<div class="row mt-4">
+			<div class="col-4 container_block rounded-2">
+				<h1 class="fw-bolder mt-5 text-white ms-3">
+					Empowering <br>Your Financial Freedom <br>with
+					Decentralization
+				</h1>
+			</div>
+			<div class="col-8">
+				<p>Welcome to Decentralized Bank, where your financial control
+					is truly yours.</p>
+				<p>
+					Become a part of the future of banking. Sign up today and
+					experience <br> the freedom and security of decentralized
+					finance.
+				</p>
+				<br>
+				<h3 class="fw-bold text-danger">About Us</h3>
+				<p>Our mission is to democratize finance, giving everyone access
+					to secure and transparent banking services.</p>
+				<p>
+					At Decentralized Bank, we believe in a future where <br>you
+					have complete control over your finances without relying on
+					traditional financial institutions.
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<span>&copy; 2024 Decentralized Bank. All Rights Reserved.</span>
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

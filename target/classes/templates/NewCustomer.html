@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decentralized Bank - Admin Creator</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<!-- Logo -->
+			<a class="navbar-brand fw-bold" th:href="@{/}"> Decentralized Bank </a>
+		</div>
+	</nav>
+	<hr>
+
+	<div class="header">
+		<div th:if="${param.success}">
+			<p class="alert alert-success"> Customer Added successfully! <a th:href="@{/loginuser}"
+					class="text-decoration-none fw-bold text-success fs-5">Login</a>
+			</p>
+		</div>
+		<div th:if="${param.invalidPin}" class="alert alert-danger"> Invalid MTPIN OR MPIN (Enter Correct MTPIN & MPIN. Must be 4 digits.)
+		</div>
+		<div th:if="${param.invalidPN}" class="alert alert-danger"> Phonenumber exceeding range.
+		</div>
+		<div class="container d-flex justify-content-center">
+			<div class="row">
+				<form class="col-12" action="newcustomer/add" method="post"
+					th:object="${users}">
+					<h1 class=" text-center">Create Customer Account</h1>
+					<div class="row row-cols-1 d-flex justify-content-center mt-3">
+						<div class="col-4 d-flex justify-content-center my-2">
+							<input class="form-control me-3" type="text"
+								th:field="*{customerName}" name="customerName"
+								placeholder="Customer Name (FullName)" required>
+						</div>
+						<div class="col-4 d-flex justify-content-center my-2">
+							<input class="form-control" type="text" th:field="*{phoneNumber}"
+								name="phoneNumber" placeholder="Phone Number" required>
+						</div>
+						<div class="col-8 d-flex justify-content-center my-2">
+							<input class="form-control" type="email" th:field="*{email}"
+								name="email" placeholder="Email" required>
+
+						</div>
+						<div class="col-8 d-flex justify-content-center my-2">
+							<input class="form-control me-3" type="text" th:field="*{City}"
+								name="city" placeholder="City" required> <input
+								class="form-control" type="text" th:field="*{State}"
+								name="state" placeholder="State" required>
+						</div>
+						<div class="col-8 d-flex justify-content-center my-2">
+							<select class="form-select me-4" name="accountType"
+								th:field="*{accountType}" required>
+								<option value="Value not selected" selected>Select
+									Account Type</option>
+								<option value="Savings Account">Savings Account</option>
+								<option value="Current Account">Current Account</option>
+							</select> <input class="form-control" type="text" name="balance"
+								th:field="*{balance}" placeholder="Minimum Deposit Amount"
+								required>
+						</div>
+						<div class="col-8 d-flex justify-content-center my-2">
+							<input type="password" class="form-control me-3" name="password"
+								th:field="*{password}" placeholder="Confirm Login Password"
+								required>
+						</div>
+						<div class="col-8 d-flex justify-content-center my-2">
+							<input class="form-control me-3" type="text" name="mpin"
+								th:field="*{mpin}" placeholder="MPIN" required> <input
+								class="form-control" type="text" name="mtpin"
+								th:field="*{mtpin}" placeholder="MTPIN" required>
+						</div>
+						<div class="col-5 d-flex justify-content-center">
+							<input class="form-control login-btn bg-secondary text-white"
+								type="submit" value="Sign Up">
+						</div>
+					</div>
+					<div class="text-center mt-3">
+						<span class="text-center">If you are a existing customer <a
+							th:href="@{loginuser}">Login Here</a></span>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<span>&copy; 2024 Decentralized Bank. All Rights Reserved.</span>
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
